@@ -1,0 +1,474 @@
+---
+title: "AssignmentB"
+format: html
+editor: visual
+---
+
+##Xiaoyang Hu
+
+```{r}
+##exercise1
+##1(a)
+v_1a<-(1:20)
+print(v_1a)
+##1(b)
+v_1b<-(20:1)
+print(v_1b)
+##1(c)
+v_1c<-c(1:20,19:1)
+print(v_1c)
+##1(d)
+tmp<-c(4,6,3)
+print(tmp)
+##1(e)
+v_1e<-rep(tmp,10)
+print(v_1e)
+##1(f)
+v_1f<-c(rep(tmp,times=10),4)
+print(v_1f)
+##1(g)
+v_1g<-c(rep(4,times=10),rep(6,times=20),rep(3,times=20))
+print(v_1g)
+```
+
+You can add options to executable code like this
+
+\`\`\`{r} #\| echo: false 2 \* 2
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+##exercise1
+##2
+x<-seq(3,6,by=0.1)
+v_2<-exp(x)*cos(x)
+print(v_2)
+```
+
+```{r}
+##exercise1
+##3(a)
+va_3a<-seq(3,36,by=3)
+print(va_3a)
+vb_3a<-seq(1,34,by=3)
+print(vb_3a)
+v_3a<-0.1^(va_3a)*0.2^(vb_3a)
+print(v_3a)
+##3(b)
+va_3b<-seq(1:25)
+v_3b<-2^(va_3b)/va_3b
+print(v_3b)
+```
+
+```{r}
+##exercise1
+##4(a)
+ia<-seq(10,100)
+v1_4a<-ia^3+4*ia^2
+v_4a<-sum(v1_4a)
+print(v_4a)
+##4(b)
+ib<-seq(1:25)
+v1_4b<-2^ib/ib+3^ib/ib^2
+v_4b<-sum(v1_4b)
+print(v_4b)
+```
+
+```{r}
+##exercise1
+##5
+##5a
+a<-paste("lable",c(1:30),sep = " ")
+print(a)
+
+##5b
+b<-paste0("fn",c(1:30))
+print(b)
+```
+
+```{r}
+##exercise1
+##6
+ set.seed(50)
+ xVec <- sample(0:999, 250, replace=T)
+ yVec <- sample(0:999, 250, replace=T)
+##6a
+n<-length(xVec)
+i<-1:n
+a<-paste(yVec[i+1],xVec[i],sep="-")
+print(a)
+##6b
+b<-paste(sin(yVec[i]),cos(xVec[i+2]),sep="/")
+print(b)
+##6c
+c<-function(xVec){
+  c1<-xVec[i]+2*xVec[i+1]-xVec[i+2]
+  return(c1)
+}
+c(xVec)
+##6d
+d<-function(xVec){
+  n<-length(xVec)
+  i<-1:n
+  d1<-exp(-xVec[i]+1)/xVec[i]+10
+  return(d1)
+}
+print(sum(d(xVec)))
+```
+
+```{r}
+##exercise1
+##7
+set.seed(50)
+xVec <- sample(0:999, 250, replace=T)
+yVec <- sample(0:999, 250, replace=T)
+##7a
+yVec[yVec>600]
+ ##7b
+which(yVec>600)
+##7c
+xVec[yVec>600]
+##7d
+xmean<-mean(xVec)
+sqrt(abs(xVec-xmean))
+##7e
+sum(yVec >= (max(yVec) - 200))
+##7f
+sum(xVec %% 2 == 0)
+##7h
+yVec[seq(1,length(yVec),by=3)]
+```
+
+```{r}
+##exercise1
+##8
+even<-seq(2,38,by=2)
+odd<-seq(3,39,by=2)
+product<-cumprod(even/odd)
+total<-1+sum(product)
+print(total)
+```
+
+```{r}
+##exercise2
+##1(a)
+A<-matrix(c(1,1,3,5,2,6,-2,-1,-3),nrow=3,byrow = TRUE)
+print(A)
+A3<-A%*%A%*%A
+print(A3)
+##1(b)
+Ab<-matrix(c(A[,1],A[,2],A[,2]+A[,3]),nrow=3)
+print(Ab)
+```
+
+```{r}
+##exercise2
+##2
+b<-c(10,-10,10)
+B<-matrix(c(rep(b,15)),nrow=15,byrow=TRUE)
+print(B)
+B1<-t(B)%*%B
+print(B1)
+```
+
+```{r}
+##exercise2
+##3
+matE<-matrix(0,nrow=6,ncol=6)
+print(col(matE))
+print(row(matE))
+m3<-matrix(row(matE)-col(matE),nrow=6,byrow=TRUE)
+m3a<-abs(m3)
+m3a[m3a>1]<-0
+print(m3a)
+```
+
+```{r}
+##exercise2
+##4
+i<-1:5
+m4a<-outer(i-1,i-1,FUN = "+")
+print(m4a)
+```
+
+```{r}
+##exercise2
+##5
+##5a
+v<-0:4
+m5a<-matrix(0,5,5)
+for(i in 1:length(v)){
+  m5a[i,]<-v
+  v<-c(v[-1],v[1])
+}
+print(m5a)
+```
+
+```{r}
+##exercise2
+##5
+##5b
+v<-0:9
+m5b<-matrix(0,10,10)
+for(i in 1:length(v)){
+  m5b[i,]<-v
+  v<-c(v[-1],v[1])
+}
+print(m5b)
+```
+
+```{r}
+##exercise2
+##5
+##5c
+v<-c(0,8,7,6,5,4,3,2,1)
+m5c<-matrix(0,9,9)
+for(i in 1:length(v)){
+  m5c[i,]<-v
+  v<-c(v[length(v)],v[-length(v)])
+}
+print(m5c)
+```
+
+```{r}
+##exercise2
+##6
+v<-1:5
+m6<-matrix(0,5,5)
+for(i in 1:length(v)){
+  m6[i,]<-v
+  v<-c(v[-1],v[1])
+}
+print(m6)
+y<-c(7,-1,-3,5,17)
+x<-solve(m6,y)
+print(x)
+```
+
+```{r}
+##exercise3
+##1a
+tmpFn1<-function(xVec) {
+  if(is.vector(xVec)==FALSE){
+  return("FALSE")
+}else{
+  n <- length(xVec)
+  i <- 1:n
+  return(xVec^i)
+}
+}
+test<-c(1,2,3)
+tmpFn1(test)
+  tmpFn2<-function(xVec){
+  n<-length(xVec)
+  i<-1:n
+  return(xVec^i/i)
+  }
+```
+
+```{r}
+##exercise3
+##1b
+tmpFn3<-function(x,n){
+  b<-1+sum(x^n/n)
+  return(b)
+}
+test<-tmpFn3(1,2)
+print(test)
+```
+
+```{r}
+##exercise3
+##2
+tmpFn<-function(xVec){
+  n<-length(xVec)
+  if(is.vector(xVec)==FALSE||n<3){
+    stop("FALSE")
+  }else{
+  i<-1:(n-2)
+  v<-xVec[i]+xVec[i+1]+xVec[i+2]
+  return(v/3)
+  }
+}
+test<-c(1:5,6:1)
+tmpFn(test)
+```
+
+```{r}
+##exercise3
+##3
+tmpFn<-function(xVec){
+n<-length(xVec)
+i<-1:n
+result<-numeric(n)
+n0<-xVec[xVec<0]
+result[xVec<0]<-n0^2+2*n0+3
+
+between <- (xVec>=0) & (xVec<2)
+n02<-xVec[between]
+result[between]<-n02+3
+
+n2<-xVec[xVec>=2]
+result[xVec>=2]<-n2^2+4*n2-7
+
+return(result)
+}
+x<-seq(-3,3,by=0.1)
+y<-tmpFn(x)
+plot(x, y,type="l",xlab = "x", ylab = "f(x)")
+```
+
+```{r}
+##exercise3
+##4
+double<-function(m){
+  if(is.matrix(m)==FALSE){
+    stop("need to be matrix")
+  }else{
+    odd<-which(m%%2!=0)
+    m[odd]<-2*m[odd]
+    }
+  return(m)
+}
+test<-matrix(c(1,1,3,5,2,6,-2,-1,-3),nrow=3,byrow=TRUE)
+double(test)
+```
+
+```{r}
+##exercise4
+##1a
+zVec<-function(xVec,yVec){
+  n<-length(xVec)
+  m<-length(yVec)
+  k<-1:n
+  j<-1:m
+  zk<-outer(yVec,xVec,FUN="<")
+  zka<-rowSums(zk)
+  return(zka)
+}
+test1<-c(1,2)
+test2<-c(2,3)
+zVec(test1,test2)
+##1b
+zVecb<-function(xVec,yVec){
+  sapply(xVec,function(x){
+    sum(yVec<x)
+  } )
+}
+##1c
+zVecc<-function(xVec,yVec){
+  vapply(xVec,function(x)sum(yVec<x),numeric(1))
+}
+##1d
+##when one is length 0
+
+```
+
+```{r}
+##exercise4
+##2a
+ma<-function(matA){
+  na<-colSums(is.na(matA))
+  matA[,na==0,drop=FALSE]
+}
+##2b
+mb<-function(matB){
+  if(!is.matrix(matB)){
+    stop("FALSE")
+  }else{
+    nac<-colSums(is.na(matB))
+    nar<-rowSums(is.na(matB))
+    matB[nac,nar,drop=FALSE]
+  }
+}
+```
+
+```{r}
+##exercise4
+##3
+##3a
+empCopula<-function(u,v,xVec,yVec){
+  r<-rank(xVec)
+  s<-rank(yVec)
+  n<-length(xVec)
+  c1<-outer(r/(n+1),u,FUN="<=")
+  c2<-outer(s/(n+1),v,FUN="<=")
+  c<-colSums(c1&c2)
+  return(sum(c)/n)
+}
+##3b
+empCopula<-function(u,v,xVec,yVec){
+  r<-rank(xVec)
+  s<-rank(yVec)
+  n<-length(xVec)
+  mapply(function(ui,vi){
+    mean((r/(n+1)<=ui)&(s/(n+1)<=vi))
+  },u,v)
+}
+```
+
+```{r}
+##exercise4
+##4
+##4a
+model<-function(n){
+  sum<-0
+for(i in 1:n){
+  for(s in 1:r){
+  sum<-sum+s^2/(10+4*r^3)
+  }
+}
+  return(sum)
+}
+##4b
+funB<-function(s,r){
+  r<-row(matrix(,n,n))
+  s<-col(matrix(,n,n))
+  return(sum((s^2/(10+4*r^3)) * (s<= r)))
+}
+##4c
+funC<-function(n){
+  r<-1:n
+  s<-1:n
+  ma<-outer(r,s,function(r,s){
+    (s^2/(10+4*r^3)) 
+  })
+  return(sum(ma))
+}
+##4d
+sum1<-function(r) {
+  sum2<- 0
+  for (s in 1:r) {
+    sum2<-sum2+s^2/(10+4*r^3)
+  }
+  return(sum2)
+}
+funD<-function(n) {
+  sum3<-sapply(1:n,sum1)
+  return(sum(sum3))
+}
+##4e
+f4e<-function(r,s){
+  ifelse(s<=r,s^2/(10+4*r^3),0)
+}
+funF<-function(n){
+  re<-rep(1:n,each=n)
+  se<-rep(1:n,times=n)
+  t<-mapply(term,re,se)
+  return(sum(t))
+}
+n<-1000
+timeA<-system.time(model(n))
+timeB<-system.time(funB(n))
+timeC<-system.time(funC(n))
+timeD<-system.time(funD(n))
+timeE<-system.time(funE(n))
+timeF<-system.time(funF(n))
+```
+
+```{r}
+##exercise5
+##1
+##1a
+
+```
